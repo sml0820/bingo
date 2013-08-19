@@ -34,10 +34,12 @@ class Bingo
 
     #Get User's Names
     @user_name = []
+    @user_score = []
     1.upto(@users_count) do |i|
       print "\n Player #{i}, what is your name? ".neon
     
       @user_name << gets.chomp
+      @user_score[i-1] = 0
       put_bar
     end
 
@@ -125,6 +127,7 @@ class Bingo
         puts "    --- --- --- --- ---"
         puts " 5   #{bingo[:a5]} | #{bingo[:b5]} | #{bingo[:c5]} | #{bingo[:d5]} | #{bingo[:e5]}"
         put_line
+        p @user_score
 
         puts " Bingo Number: #{@random}".red
      
@@ -191,8 +194,12 @@ class Bingo
           put_line
           draw_game
           put_line
+          @user_score[i] += 1
           puts ""
           puts " Game Over -- #{@user_name[i]} WINS!!!\n".blue
+          @user_name.each_with_index do |user,z|
+            puts "#{user}  #{@user_score[z]} \n".green
+          end
           game_over = true
           ask_to_play_again(true)
         end
