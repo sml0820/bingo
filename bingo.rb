@@ -127,7 +127,6 @@ class Bingo
         puts "    --- --- --- --- ---"
         puts " 5   #{bingo[:a5]} | #{bingo[:b5]} | #{bingo[:c5]} | #{bingo[:d5]} | #{bingo[:e5]}"
         put_line
-        p @user_score
 
         puts " Bingo Number: #{@random}".red
      
